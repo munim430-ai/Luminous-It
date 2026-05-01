@@ -3,87 +3,101 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Facebook, Instagram, Twitter, Mail, MapPin, Phone, Globe } from "lucide-react";
+import { Facebook, Mail, MapPin, Phone, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
-
 import Logo from "./Logo";
+
+const MESSENGER_URL = "https://m.me/luminousitinstituteofficialonline1";
+const FACEBOOK_URL = "https://www.facebook.com/luminousitinstituteofficialonline1";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-50 text-slate-500 pt-24 pb-16 border-t border-slate-100">
+    <footer className="bg-slate-900 text-slate-400 pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
-          <div className="space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14 mb-16">
+          {/* Brand */}
+          <div className="space-y-6">
             <Link to="/" className="flex items-center gap-3 group">
-              <Logo size={40} className="group-hover:rotate-12 transition-transform" />
-              <span className="font-serif italic text-2xl tracking-tight font-semibold text-slate-900">
-                Luminous <span className="gradient-text font-bold not-italic">IT Institute</span>
+              <Logo size={44} className="rounded-xl overflow-hidden" />
+              <span className="font-bold text-xl text-white whitespace-nowrap">
+                Luminous <span className="gradient-text">IT Institute</span>
               </span>
             </Link>
-            <p className="text-sm leading-relaxed opacity-60">
-              Leading the digital revolution in Bangladesh. Professional IT training for high-performance global careers.
+            <p className="text-sm leading-relaxed text-slate-400">
+              বাংলাদেশের সেরা ফ্রিল্যান্সিং প্রশিক্ষণ কেন্দ্র। আপনার স্বপ্নের IT ক্যারিয়ার গড়ার সেরা জায়গা।
             </p>
-            <div className="flex gap-5">
-              <a href="https://www.facebook.com/share/1B9xUtNCpn/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center hover:bg-brand-pink hover:text-white transition-all shadow-sm">
-                <Facebook size={18} />
+            <div className="flex gap-4">
+              <a href={FACEBOOK_URL} target="_blank" rel="noreferrer"
+                className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-pink hover:text-white transition-all text-slate-400">
+                <Facebook size={17} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center hover:bg-brand-pink hover:text-white transition-all shadow-sm">
-                <Instagram size={18} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center hover:bg-brand-pink hover:text-white transition-all shadow-sm">
-                <Twitter size={18} />
+              <a href={MESSENGER_URL} target="_blank" rel="noreferrer"
+                className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all text-slate-400">
+                <MessageCircle size={17} />
               </a>
             </div>
           </div>
 
+          {/* Navigation */}
           <div>
-             <h4 className="text-slate-900 font-bold uppercase tracking-widest text-[10px] mb-8">Navigation</h4>
-             <ul className="space-y-4 text-xs font-bold uppercase tracking-widest">
-                <li><Link to="/courses" className="hover:text-brand-pink transition-colors">Courses</Link></li>
-                <li><Link to="/stories" className="hover:text-brand-pink transition-colors">Success Gallery</Link></li>
-                <li><Link to="/vision" className="hover:text-brand-pink transition-colors">Vision 2026</Link></li>
-                <li><Link to="/referral" className="hover:text-brand-pink transition-colors">Career Pathways</Link></li>
-             </ul>
+            <h4 className="text-white font-bold text-sm mb-6">নেভিগেশন</h4>
+            <ul className="space-y-3 text-sm font-medium">
+              <li><Link to="/courses" className="hover:text-brand-pink transition-colors">কোর্সসমূহ</Link></li>
+              <li><Link to="/stories" className="hover:text-brand-pink transition-colors">সাফল্যের গল্প</Link></li>
+              <li><Link to="/earning-guide" className="hover:text-brand-pink transition-colors">আয়ের গাইড</Link></li>
+              <li><Link to="/faq" className="hover:text-brand-pink transition-colors">সাধারণ প্রশ্নোত্তর</Link></li>
+            </ul>
           </div>
 
+          {/* Resources */}
           <div>
-             <h4 className="text-slate-900 font-bold uppercase tracking-widest text-[10px] mb-8">Resources</h4>
-             <ul className="space-y-4 text-xs font-bold uppercase tracking-widest">
-                <li><Link to="/earning-guide" className="hover:text-brand-pink transition-colors">Earning Guide</Link></li>
-                <li><Link to="/faq" className="hover:text-brand-pink transition-colors">FAQs</Link></li>
-                <li><Link to="/legal" className="hover:text-brand-pink transition-colors">Legal</Link></li>
-                <li><Link to="/contact" className="hover:text-brand-pink transition-colors">Contact Service</Link></li>
-             </ul>
+            <h4 className="text-white font-bold text-sm mb-6">রিসোর্স</h4>
+            <ul className="space-y-3 text-sm font-medium">
+              <li><Link to="/dashboard" className="hover:text-brand-pink transition-colors">স্টুডেন্ট ড্যাশবোর্ড</Link></li>
+              <li><Link to="/gallery" className="hover:text-brand-pink transition-colors">গ্যালারি</Link></li>
+              <li><Link to="/contact" className="hover:text-brand-pink transition-colors">যোগাযোগ</Link></li>
+              <li><Link to="/legal" className="hover:text-brand-pink transition-colors">আইনি তথ্য</Link></li>
+            </ul>
           </div>
 
+          {/* Contact */}
           <div>
-             <h4 className="text-slate-900 font-bold uppercase tracking-widest text-[10px] mb-8">Luminous HQ</h4>
-             <ul className="space-y-4 text-xs font-medium leading-relaxed">
-                <li className="flex gap-3">
-                   <MapPin size={16} className="text-brand-orange shrink-0" />
-                   <span className="opacity-60">22/3 4th Floor, Dayaganj, Dhaka-1204</span>
-                </li>
-                <li className="flex items-center gap-3">
-                   <Phone size={16} className="text-brand-orange shrink-0" />
-                   <span className="opacity-60">+880 1711 000 000</span>
-                </li>
-                <li className="flex items-center gap-3">
-                   <Mail size={16} className="text-brand-orange shrink-0" />
-                   <span className="opacity-60">info@luminousitinstitute.com</span>
-                </li>
-             </ul>
+            <h4 className="text-white font-bold text-sm mb-6">আমাদের ঠিকানা</h4>
+            <ul className="space-y-4 text-sm">
+              <li className="flex gap-3">
+                <MapPin size={16} className="text-brand-orange shrink-0 mt-0.5" />
+                <span>২২/৩, ৪র্থ তলা, মারুফ কমপ্লেক্স, হাট লেন, দয়াগঞ্জ, ঢাকা-১২০৪</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone size={16} className="text-brand-orange shrink-0" />
+                <span>+৮৮০ ১৭XX XXX XXX</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail size={16} className="text-brand-orange shrink-0" />
+                <span>info@luminousitinstitute.com</span>
+              </li>
+            </ul>
+            <a
+              href={MESSENGER_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-xl gradient-bg text-white text-sm font-bold hover:scale-105 transition-all shadow-lg shadow-brand-pink/20"
+            >
+              <MessageCircle size={16} />
+              Messenger-এ কথা বলুন
+            </a>
           </div>
         </div>
 
-        <div className="pt-10 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-[10px] uppercase tracking-widest font-bold opacity-30">
-            © {currentYear} Luminous IT Institute. All Rights Reserved.
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-slate-600">
+            © {currentYear} Luminous IT Institute. সর্বস্বত্ব সংরক্ষিত।
           </p>
-          <div className="flex gap-3 items-center">
-             <div className="w-2 h-2 bg-brand-orange rounded-full" />
-             <span className="text-[10px] uppercase tracking-widest font-bold opacity-30">ISO Certified Training</span>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+            <span className="text-xs text-slate-600 font-bold">ভর্তি চলমান</span>
           </div>
         </div>
       </div>
