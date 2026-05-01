@@ -6,9 +6,57 @@
 import { Facebook, Mail, MapPin, Phone, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
+import { useState } from "react";
 
 const MESSENGER_URL = "https://m.me/luminousitinstituteofficialonline1";
 const FACEBOOK_URL = "https://www.facebook.com/luminousitinstituteofficialonline1";
+
+function EasterEgg() {
+  const [clicks, setClicks] = useState(0);
+  const [revealed, setRevealed] = useState(false);
+
+  const handleClick = () => {
+    const next = clicks + 1;
+    setClicks(next);
+    if (next >= 5) {
+      setRevealed(true);
+      setClicks(0);
+    }
+  };
+
+  return (
+    <span className="relative inline-block ml-1">
+      <span
+        onClick={handleClick}
+        className="cursor-default select-none text-slate-800 hover:text-slate-700 transition-colors"
+        title=""
+      >
+        {Array.from({ length: 5 }).map((_, i) => (
+          <span
+            key={i}
+            className={`inline-block w-1 h-1 rounded-full mx-px transition-all duration-300 ${
+              i < clicks ? "bg-brand-orange scale-125" : "bg-slate-700"
+            }`}
+          />
+        ))}
+      </span>
+      {revealed && (
+        <span className="absolute bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap z-50">
+          <a
+            href="https://keystone-nextjs-virid.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => setRevealed(false)}
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 border border-brand-orange/40 text-xs font-bold text-brand-orange shadow-2xl hover:bg-slate-700 transition-all animate-bounce-slow"
+          >
+            ✦ Built by Keystone
+          </a>
+          <span className="block w-2 h-2 bg-slate-800 border-r border-b border-brand-orange/40 rotate-45 mx-auto -mt-1" />
+        </span>
+      )}
+    </span>
+  );
+}
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -93,7 +141,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-slate-600">
-            © {currentYear} Luminous IT Institute. সর্বস্বত্ব সংরক্ষিত।
+            © {currentYear} Luminous IT Institute. সর্বস্বত্ব সংরক্ষিত।<EasterEgg />
           </p>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
