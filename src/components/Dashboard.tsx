@@ -75,18 +75,24 @@ export default function Dashboard() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                <div className="bg-slate-50 rounded-3xl p-8 border border-slate-200">
+                <motion.div 
+                  whileHover={{ y: -5, borderColor: '#f97316' }}
+                  className="bg-slate-50 rounded-3xl p-8 border border-slate-200 transition-colors"
+                >
                   <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest mb-6">Course Milestone</p>
                   <h3 className="text-3xl text-slate-900 font-serif tracking-tight mb-2">৳45,000 Target</h3>
                   <p className="text-brand-pink text-[10px] font-bold">+15% progress</p>
-                </div>
-                <div className="bg-slate-50 rounded-3xl p-8 border border-slate-200">
+                </motion.div>
+                <motion.div 
+                  whileHover={{ y: -5, borderColor: '#ec4899' }}
+                  className="bg-slate-50 rounded-3xl p-8 border border-slate-200 transition-colors"
+                >
                   <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest mb-6">Overall Grade</p>
                   <h3 className="text-3xl text-slate-900 font-serif tracking-tight mb-4">Grade A+</h3>
                   <div className="h-1.5 w-full bg-slate-200 rounded-full overflow-hidden">
                     <div className="h-full gradient-bg w-[92%]" />
                   </div>
-                </div>
+                </motion.div>
               </div>
 
               <div className="bg-slate-50 rounded-3xl p-8 border border-slate-200">
@@ -99,13 +105,17 @@ export default function Dashboard() {
                     { label: "Market Research", status: "Due Today", color: "bg-brand-orange" },
                     { label: "Final Project Submission", status: "Next Week", color: "bg-white/20" },
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center justify-between p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                    <motion.div 
+                      key={i} 
+                      whileHover={{ y: -2, borderColor: '#f97316' }}
+                      className="flex items-center justify-between p-5 bg-white border border-slate-100 rounded-2xl shadow-sm cursor-pointer transition-colors"
+                    >
                       <div className="flex items-center gap-4">
                         <div className={`w-2 h-2 rounded-full ${item.color} ${item.status === 'Due Today' ? 'animate-pulse' : ''}`} />
                         <span className="text-slate-700 text-sm font-bold tracking-tight">{item.label}</span>
                       </div>
                       <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{item.status}</span>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
