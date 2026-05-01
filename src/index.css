@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-brand-orange: #f97316;
+  --color-brand-pink: #ec4899;
+  --color-brand-dark: #111827;
+  --color-brand-surface: #f9fafb;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-[#fff5f7] text-slate-900 antialiased selection:bg-brand-pink/30 selection:text-brand-pink;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight text-slate-900;
+  }
+}
+
+.gradient-text {
+  @apply bg-linear-to-r from-brand-orange to-brand-pink bg-clip-text text-transparent;
+}
+
+.gradient-bg {
+  @apply bg-linear-to-r from-brand-orange to-brand-pink;
+}
+
+.glass {
+  @apply bg-white/70 border border-slate-200 backdrop-blur-xl;
+}
+
+.glass-brand {
+  @apply bg-brand-orange/5 border border-brand-orange/20 backdrop-blur-xl;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
